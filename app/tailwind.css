@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes section-show {
+  0% {
+    transform: scaleY(0.6);
+    opacity: 0;
+  }
+  90% {
+    transform: scaleY(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes section-hide {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  
+  100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+
+.section.bounce {
+  animation: section-show 0.6s forwards;
+}
+
+.section.hide {
+  animation: section-hide 1s forwards;
+}
+
+.signs-post::before {
+  font: var(--fa-font-solid);
+  content: ' \f277';
+  display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
