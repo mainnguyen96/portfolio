@@ -207,7 +207,7 @@ export default function Index() {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5
+        threshold: 0.1
       }
     );
 
@@ -343,7 +343,7 @@ export default function Index() {
                   <span className="text-sm font-semibold uppercase tracking-wide text-cyan-400">
                     Hello!
                   </span>
-                  <h1 className="my-12 text-6xl font-extrabold">
+                  <h1 className="my-12 text-6xl text-wrap font-extrabold">
                     I'm <span className=" text-cyan-400">Main Nguyen</span>
                   </h1>
                   <h2 className="mb-12 text-3xl">A Freelance Web Developer</h2>
