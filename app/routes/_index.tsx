@@ -138,6 +138,7 @@ export default function Index() {
   const [slideIndex, setSlideIndex] = useState<number>(0);
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const [projectNum, setProjectNum] = useState<number>(0);
+  const [dragStart, setDragStart] = useState<number>(0);
   const timeoutRef = useRef<any>(null);
   const menuRef = useRef<HTMLButtonElement>(null);
   const aboutRef = useRef<HTMLSelectElement>(null);
@@ -207,7 +208,7 @@ export default function Index() {
       {
         root: null,
         rootMargin: '200px',
-        threshold: 0.1
+        threshold: 0.4
       }
     );
 
@@ -267,9 +268,9 @@ export default function Index() {
   };
 
   return (
-    <div className="font-mono max-w-screen-xl">
+    <div className="font-mono flex flex-col items-center">
       <nav
-        className="fixed z-50 flex h-20 w-full max-w-screen-xl flex-wrap content-center items-center bg-slate-900 px-4 py-2"
+        className="fixed z-50 flex h-20 w-screen max-w-7xl  flex-wrap content-center items-center bg-slate-900 px-4 py-2"
         id="ftco-navbar"
         style={{
           backgroundColor: `rgba(15, 23, 42, 0.5)`
@@ -278,7 +279,7 @@ export default function Index() {
         <div className="relative flex h-full w-full items-center">
           <div className="text-2xl font-black">Main Nguyen</div>
           <button
-            className="absolute right-0 cursor-pointer md-max:block hidden"
+            className="absolute right-0 hidden cursor-pointer md-max:block"
             type="button"
             data-toggle="collapse"
             data-target="#ftco-nav"
@@ -292,11 +293,11 @@ export default function Index() {
           </button>
 
           <div
-            className={`basic-auto justify-end md-max:scaleX-0 md-max:absolute md-max:right-0 md-max:mt-14 md-max:flex md-max:justify-end md-max:scale-x-0 top-0 shrink flex-grow items-center transition-all duration-300 ease-in md:mt-0 flex md:h-full md:scale-x-100 md:opacity-100 ${openMenu ? 'md-max:scale-x-100 md-max:opacity-100' : 'md-max:opacity-0'}`}
+            className={`basic-auto md-max:scaleX-0 md:mt-0 md:h-full md:scale-x-100 md:opacity-100 top-0 flex shrink flex-grow items-center justify-end transition-all duration-300 ease-in md-max:absolute md-max:right-0 md-max:mt-14 md-max:flex md-max:scale-x-0 md-max:justify-end ${openMenu ? 'md-max:scale-x-100 md-max:opacity-100' : 'md-max:opacity-0'}`}
           >
-            <ul className="md-max:justify-end md-max:flex-col flex md:flex-row">
+            <ul className="md:flex-row flex md-max:flex-col md-max:justify-end">
               {sections.map((item) => (
-                <li className="md-max:items-end flex text-end" key={item.label}>
+                <li className="flex text-end md-max:items-end" key={item.label}>
                   <a
                     href={`#${item.section}`}
                     onClick={handleClickMenu}
@@ -314,36 +315,41 @@ export default function Index() {
       </nav>
       <section
         id="home-section"
-        className="relative h-screen max-w-screen-xl overflow-hidden"
+        className="max-w-screen-xl relative h-screen max-w-7xl overflow-hidden"
       >
         <div
-          className="h-full whitespace-nowrap transition-all duration-1000 ease-in"
+          onDragStart={(event) => setDragStart(event.clientX)}
+          onDrag={(event) => {
+            const position = event.clientX;
+            console.log(position - dragStart);
+            if (Math.abs(position - dragStart) > 200) {
+              setSlideIndex((prevIndex) => (prevIndex === 0 ? 1 : 0));
+            }
+          }}
+          className=" h-screen w-screen whitespace-nowrap transition-all duration-1000 ease-in active:cursor-grab"
           style={{
             transform: `translate3d(${-slideIndex * 100}%, 0, 0)`
           }}
         >
           <div
-            className={`${slideIndex === 0 ? 'opacity-100' : ''} inline-block h-full w-full max-w-screen-xl overflow-hidden px-12 opacity-0 transition-all duration-2000 ease-in`}
+            className={`${slideIndex === 0 ? 'opacity-100' : ''} max-w-screen-xl inline-block h-full w-screen overflow-hidden opacity-0 transition-all duration-2000 ease-in`}
           >
             <div
-              className="relative flex h-full flex-row-reverse items-center justify-evenly"
+              className="relative flex h-full max-w-7xl w-screen  flex-row-reverse items-center justify-evenly"
               data-scrollax-parent="true"
             >
               <div
-                className="absolute bottom-0 right-0"
+                className="absolute right-0 top-0 bottom-0 h-screen w-screen max-w-xl bg-cover bg-no-repeat"
                 style={{
-                  backgroundImage: 'url(images/bg_1.png)',
-                  height: '100%',
-                  width: '660px',
-                  backgroundSize: 'cover'
+                  backgroundImage: 'url(images/bg_1.png)'
                 }}
               ></div>
-              <div className="z-10 flex h-full w-full flex-grow items-center">
-                <div className="text">
+              <div className="z-10 flex h-full w-full flex-grow items-center px-4">
+                <div className="text-wrap">
                   <span className="text-sm font-semibold uppercase tracking-wide text-cyan-400">
                     Hello!
                   </span>
-                  <h1 className="my-12 text-6xl text-wrap font-extrabold">
+                  <h1 className="my-12 text-wrap text-6xl font-extrabold">
                     I'm <span className=" text-cyan-400">Main Nguyen</span>
                   </h1>
                   <h2 className="mb-12 text-3xl">A Freelance Web Developer</h2>
@@ -367,24 +373,21 @@ export default function Index() {
           </div>
 
           <div
-            className={`${slideIndex === 1 ? 'opacity-100' : ''} inline-block h-full w-full max-w-screen-xl overflow-hidden px-12 opacity-0 transition-all duration-2000 ease-in`}
+            className={`${slideIndex === 1 ? 'opacity-100' : ''} max-w-screen-xl inline-block h-full w-screen overflow-hidden opacity-0 transition-all duration-2000 ease-in`}
           >
-            <div className="relative flex h-full flex-row-reverse">
+            <div className="relative max-w-7xl flex h-full w-screen flex-row-reverse">
               <div
-                className="absolute bottom-0 left-0"
+                className="absolute top-0 bottom-0 right-0 h-screen w-screen max-w-xl bg-cover bg-no-repeat"
                 style={{
-                  backgroundImage: 'url(images/bg_2.png)',
-                  height: '100%',
-                  width: '660px',
-                  backgroundSize: 'cover'
+                  backgroundImage: 'url(images/bg_2.png)'
                 }}
               ></div>
-              <div className="z-10 flex h-full w-full max-w-lg flex-grow items-center">
-                <div className="whitespace-break-spaces">
+              <div className="absolute left-0 z-10 flex h-full w-full max-w-lg flex-grow items-center px-4">
+                <div className="text-wrap">
                   <span className="text-sm font-semibold uppercase tracking-wide text-cyan-400">
                     Hello!
                   </span>
-                  <h1 className="my-12 text-6xl font-extrabold">
+                  <h1 className="my-12 w-screen max-w-lg text-6xl font-extrabold">
                     I'm a <span className="text-cyan-400 ">web developer</span>{' '}
                     based in Da Nang, Viet Nam
                   </h1>
@@ -425,10 +428,10 @@ export default function Index() {
 
       <section
         ref={aboutRef}
-        className="section relative bg-cover bg-center bg-no-repeat py-28 pt-28 opacity-0"
+        className="section relative max-w-7xl bg-cover bg-center bg-no-repeat py-28 pt-28 opacity-0"
         id="about-section"
       >
-        <div className="mx-auto w-full max-w-screen-lg px-4">
+        <div className="max-w-screen-lg mx-auto w-full px-4">
           <div className="-mx-4 flex flex-wrap">
             <div className="flex">
               <div className="relative flex w-full bg-cover bg-center bg-no-repeat">
@@ -529,7 +532,7 @@ export default function Index() {
 
       <section
         ref={resumeRef}
-        className="section relative pt-28 opacity-0"
+        className="section relative max-w-7xl pt-28 opacity-0"
         id="resume-section"
       >
         <div className="flex flex-col">
@@ -584,7 +587,7 @@ export default function Index() {
 
       <section
         ref={skillRef}
-        className="section relative pt-28 opacity-0"
+        className="section relative max-w-7xl pt-28 opacity-0"
         id="skills-section"
       >
         <div className="flex flex-col items-center">
@@ -632,7 +635,7 @@ export default function Index() {
 
       <section
         ref={projectRef}
-        className="section relative pt-28 opacity-0"
+        className="section relative max-w-7xl pt-28 opacity-0"
         id="projects-section"
       >
         <div className="flex flex-col items-center">
@@ -656,7 +659,8 @@ export default function Index() {
               style={{
                 backgroundImage: 'url(images/project_1.png)',
                 height: '285px',
-                width: '500px'
+                width: '500px',
+                maxWidth: '100vw'
               }}
             >
               <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center rounded-lg bg-cyan-800 opacity-0 transition-all	duration-300 ease-in hover:opacity-90">
@@ -681,7 +685,8 @@ export default function Index() {
               style={{
                 backgroundImage: 'url(images/project_2.png)',
                 height: '285px',
-                width: '500px'
+                width: '500px',
+                maxWidth: '100vw'
               }}
             >
               <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center rounded-lg bg-emerald-700 opacity-0 transition-all	duration-300 ease-in hover:opacity-90">
@@ -704,7 +709,8 @@ export default function Index() {
               style={{
                 backgroundImage: 'url(images/project_3.png)',
                 height: '285px',
-                width: '500px'
+                width: '500px',
+                maxWidth: '100vw'
               }}
             >
               <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center rounded-lg bg-purple-700	 opacity-0 transition-all	duration-300 ease-in hover:opacity-90">
@@ -729,7 +735,7 @@ export default function Index() {
       </section>
 
       <section
-        className="w-full bg-cover bg-center bg-no-repeat py-28"
+        className="w-full max-w-7xl bg-cover bg-center bg-no-repeat py-28"
         style={{ backgroundImage: 'url(images/bg_1.jpg)' }}
       >
         <div className="w-full">
@@ -758,7 +764,7 @@ export default function Index() {
 
       <section
         ref={contactRef}
-        className="section relative pt-28 opacity-100"
+        className="section relative pt-28 opacity-0"
         id="contact-section"
       >
         <div className="flex flex-col items-center justify-center">
