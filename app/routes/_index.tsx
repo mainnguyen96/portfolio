@@ -254,7 +254,12 @@ export default function Index() {
     event.preventDefault();
 
     // Get the hash from the link
-    const hash = event.target.parentNode.hash;
+    let hash;
+    if (event.target.hash) {
+      hash = event.target.hash;
+    } else {
+      hash = event.target.parentNode.hash;
+    }
 
     // Use the hash to find the element
     const element = document.querySelector(hash);
@@ -335,11 +340,11 @@ export default function Index() {
             className={`${slideIndex === 0 ? 'opacity-100' : ''} max-w-screen-xl inline-block h-full w-screen overflow-hidden opacity-0 transition-all duration-2000 ease-in`}
           >
             <div
-              className="relative flex h-full max-w-7xl w-screen  flex-row-reverse items-center justify-evenly"
+              className="relative flex h-full w-screen max-w-7xl  flex-row-reverse items-center justify-evenly"
               data-scrollax-parent="true"
             >
               <div
-                className="absolute right-0 top-0 bottom-0 h-screen w-screen max-w-xl bg-cover bg-no-repeat"
+                className="absolute bottom-0 right-0 top-0 h-screen w-screen max-w-xl bg-cover bg-no-repeat"
                 style={{
                   backgroundImage: 'url(images/bg_1.png)'
                 }}
@@ -355,13 +360,15 @@ export default function Index() {
                   <h2 className="mb-12 text-3xl">A Freelance Web Developer</h2>
                   <p>
                     <a
-                      href="#hire"
+                      href="#contact-section"
+                      onClick={handleClickMenu}
                       className="border-1 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400  hover:font-semibold"
                     >
                       Hire me
                     </a>
                     <a
-                      href="#works"
+                      href="#projects-section"
+                      onClick={handleClickMenu}
                       className="border-1 ml-10 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400  hover:font-semibold"
                     >
                       My works
@@ -375,9 +382,9 @@ export default function Index() {
           <div
             className={`${slideIndex === 1 ? 'opacity-100' : ''} max-w-screen-xl inline-block h-full w-screen overflow-hidden opacity-0 transition-all duration-2000 ease-in`}
           >
-            <div className="relative max-w-7xl flex h-full w-screen flex-row-reverse">
+            <div className="relative flex h-full w-screen max-w-7xl flex-row-reverse">
               <div
-                className="absolute top-0 bottom-0 right-0 h-screen w-screen max-w-xl bg-cover bg-no-repeat"
+                className="absolute bottom-0 right-0 top-0 h-screen w-screen max-w-xl bg-cover bg-no-repeat"
                 style={{
                   backgroundImage: 'url(images/bg_2.png)'
                 }}
@@ -393,13 +400,15 @@ export default function Index() {
                   </h1>
                   <p>
                     <a
-                      href="#hire"
+                      href="#contact-section"
+                      onClick={handleClickMenu}
                       className="border-1 ml-10 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
                     >
                       Hire me
                     </a>
                     <a
-                      href="#work"
+                      href="#projects-section"
+                      onClick={handleClickMenu}
                       className="border-1 ml-10 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
                     >
                       My works
@@ -455,49 +464,47 @@ export default function Index() {
                     About Me
                   </h2>
                   <p className="mb-4 text-slate-300">
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary regelialia.
+                    &ldquo;The only true wisdom is in knowing you know
+                    nothing.&rdquo; - Socrates
                   </p>
                   <ul className="m-0 mt-6 inline-block w-full p-0">
                     <li className="mb-2.5 flex ">
                       <span className="w-32 font-semibold text-slate-50">
                         Name:
                       </span>{' '}
-                      <span className="text-slate-300">Clark Thompson</span>
+                      <span className="text-slate-300">Nguyen Duc Chinh</span>
                     </li>
                     <li className="mb-2.5 flex ">
                       <span className="w-32 font-semibold text-slate-50">
                         Date of birth:
                       </span>{' '}
-                      <span className="text-slate-300">January 01, 1987</span>
+                      <span className="text-slate-300">October 11, 1996</span>
                     </li>
                     <li className="mb-2.5 flex ">
                       <span className="w-32 font-semibold text-slate-50">
                         Address:
                       </span>
-                      <span className="text-slate-300">
-                        San Francisco CA 97987 USA
-                      </span>
+                      <span className="text-slate-300">Da Nang, Viet Nam</span>
                     </li>
                     <li className="mb-2.5 flex ">
                       <span className="w-32 font-semibold text-slate-50">
                         Zip code:
                       </span>{' '}
-                      <span className="text-slate-300">1000</span>
+                      <span className="text-slate-300">550000</span>
                     </li>
                     <li className="mb-2.5 flex ">
                       <span className="w-32 font-semibold text-slate-50">
                         Email:
                       </span>{' '}
                       <span className="text-slate-300">
-                        clarkthomp@gmail.com
+                        chinhnd1096@gmail.com
                       </span>
                     </li>
                     <li className="mb-2.5 flex ">
                       <span className="w-32 font-semibold text-slate-50">
                         Phone:{' '}
                       </span>{' '}
-                      <span className="text-slate-300">+1-2234-5678-9-0</span>
+                      <span className="text-slate-300">+84-398289941</span>
                     </li>
                   </ul>
                 </div>
@@ -545,9 +552,8 @@ export default function Index() {
                 Resume
               </h2>
               <p className="mb-4 text-slate-300">
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia. It is a paradisematic country, in
-                which roasted parts of sentences fly into your mouth.
+                &ldquo;He who knows others is learned; he who knows himself is
+                wise.&rdquo; - Lao Tzu
               </p>
             </div>
           </div>
@@ -600,8 +606,8 @@ export default function Index() {
                 My Skills
               </h2>
               <p className="mb-4 text-slate-300">
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia
+                &ldquo;Everything we hear is an opinion, not a fact. Everything
+                we see is a perspective, not the truth.&rdquo; - Marcus Aurelius
               </p>
             </div>
           </div>
@@ -648,8 +654,9 @@ export default function Index() {
                 My Projects
               </h2>
               <p className="mb-4 text-slate-300">
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia
+                &ldquo;Believe nothing, no matter where you read it, or who has
+                said it, not even if I have said it. Unless it agrees with your
+                own reason and your own common sense.&rdquo; - Buddha
               </p>
             </div>
           </div>
@@ -741,17 +748,18 @@ export default function Index() {
         <div className="w-full">
           <div className="row justify-content-center">
             <div className="text-center">
-              <h2 className="text-4xl font-black">
+              <h2 className="mb-12 text-4xl font-black">
                 I'm <span className="text-cyan-400">Available</span> for
                 freelancing
               </h2>
               <p className="mb-8 text-slate-300">
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
+                &ldquo;Happiness is a journey, not a destination.&rdquo; -
+                Alfred D'Souza
               </p>
               <p className="mb-0">
                 <a
-                  href="#hire"
+                  href="#contact-section"
+                  onClick={handleClickMenu}
                   className="border-1 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
                 >
                   Hire me
@@ -777,8 +785,7 @@ export default function Index() {
                 Contact Me
               </h2>
               <p className="mb-4 text-slate-300">
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia
+                &ldquo;I Think, Therefore I Am.&rdquo; - Descartes
               </p>
             </div>
           </div>
