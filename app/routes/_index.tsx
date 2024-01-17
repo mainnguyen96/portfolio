@@ -9,7 +9,8 @@ export const meta: MetaFunction = () => {
     },
     {
       name: 'description',
-      content: 'Frontend Developer Portfolio'
+      content:
+        "I am a Frontend Developer base in Da Nang City, Viet Nam. I have skill in Javascript, Typescript, React, Vue, Next and Remix. Let' hire me."
     },
     {
       name: 'keywords',
@@ -131,8 +132,8 @@ const contacts = [
   },
   {
     label: 'Website',
-    content: 'website.com',
-    link: 'website.com',
+    content: 'Portfolio',
+    link: 'https://portfolio-chinhnguyen.vercel.app/',
     path: (
       <path d="M57.7 193l9.4 16.4c8.3 14.5 21.9 25.2 38 29.8L163 255.7c17.2 4.9 29 20.6 29 38.5v39.9c0 11 6.2 21 16 25.9s16 14.9 16 25.9v39c0 15.6 14.9 26.9 29.9 22.6c16.1-4.6 28.6-17.5 32.7-33.8l2.8-11.2c4.2-16.9 15.2-31.4 30.3-40l8.1-4.6c15-8.5 24.2-24.5 24.2-41.7v-8.3c0-12.7-5.1-24.9-14.1-33.9l-3.9-3.9c-9-9-21.2-14.1-33.9-14.1H257c-11.1 0-22.1-2.9-31.8-8.4l-34.5-19.7c-4.3-2.5-7.6-6.5-9.2-11.2c-3.2-9.6 1.1-20 10.2-24.5l5.9-3c6.6-3.3 14.3-3.9 21.3-1.5l23.2 7.7c8.2 2.7 17.2-.4 21.9-7.5c4.7-7 4.2-16.3-1.2-22.8l-13.6-16.3c-10-12-9.9-29.5 .3-41.3l15.7-18.3c8.8-10.3 10.2-25 3.5-36.7l-2.4-4.2c-3.5-.2-6.9-.3-10.4-.3C163.1 48 84.4 108.9 57.7 193zM464 256c0-36.8-9.6-71.4-26.4-101.5L412 164.8c-15.7 6.3-23.8 23.8-18.5 39.8l16.9 50.7c3.5 10.4 12 18.3 22.6 20.9l29.1 7.3c1.2-9 1.8-18.2 1.8-27.5zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
     )
@@ -304,7 +305,7 @@ export default function Index() {
         }}
       >
         <div className="relative flex h-full w-full items-center">
-          <div className="text-2xl font-black">Chinh Nguyen</div>
+          <h2 className="text-2xl font-black">Chinh Nguyen</h2>
           <button
             className="absolute right-0 hidden cursor-pointer md-max:block"
             type="button"
@@ -376,9 +377,9 @@ export default function Index() {
                   <span className="text-sm font-semibold uppercase tracking-wide text-cyan-400">
                     Hello!
                   </span>
-                  <h1 className="my-12 text-wrap text-6xl font-extrabold">
+                  <h2 className="my-12 text-wrap text-6xl font-extrabold">
                     I'm <span className=" text-cyan-400">Main Nguyen</span>
-                  </h1>
+                  </h2>
                   <h2 className="mb-12 text-3xl">A Freelance Web Developer</h2>
                   <p>
                     <a
@@ -479,9 +480,9 @@ export default function Index() {
             <div className="pb-12 pl-12 ">
               <div className="row justify-content-start pb-3">
                 <div className="relative">
-                  <h1 className="absolute -left-6 top-0 -z-10 mb-2 text-8xl font-black leading-normal text-slate-700">
+                  <h2 className="absolute -left-6 top-0 -z-10 mb-2 text-8xl font-black leading-normal text-slate-700">
                     About
-                  </h1>
+                  </h2>
                   <h2 className="mb-10 text-6xl font-bold leading-normal">
                     About Me
                   </h2>
@@ -546,7 +547,7 @@ export default function Index() {
                     <a
                       href="https://drive.google.com/file/d/1g1ZslL4MbkgsN9lOnjtoFn_cPltwZpgs/view?usp=drive_link"
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer canonical"
                       className="border-1 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
                     >
                       Download CV
@@ -567,9 +568,9 @@ export default function Index() {
         <div className="flex flex-col">
           <div className="row justify-content-center pb-5">
             <div className="relative text-center">
-              <h1 className="absolute top-0  -z-10 mb-2 w-full text-8xl font-black leading-normal text-slate-700">
+              <h2 className="absolute top-0  -z-10 mb-2 w-full text-8xl font-black leading-normal text-slate-700">
                 Resume
-              </h1>
+              </h2>
               <h2 className="mb-10 text-6xl font-bold leading-normal">
                 Resume
               </h2>
@@ -602,7 +603,7 @@ export default function Index() {
                 <a
                   href="https://drive.google.com/file/d/1g1ZslL4MbkgsN9lOnjtoFn_cPltwZpgs/view?usp=drive_link"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer canonical"
                   className="border-1 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
                 >
                   Download CV
@@ -621,9 +622,9 @@ export default function Index() {
         <div className="flex flex-col items-center">
           <div className="row justify-content-center pb-5">
             <div className="relative text-center">
-              <h1 className="absolute top-0  -z-10 mb-2 w-full text-8xl font-black leading-normal text-slate-700">
+              <h2 className="absolute top-0  -z-10 mb-2 w-full text-8xl font-black leading-normal text-slate-700">
                 Skills
-              </h1>
+              </h2>
               <h2 className="mb-10 text-6xl font-bold leading-normal">
                 My Skills
               </h2>
@@ -669,9 +670,9 @@ export default function Index() {
         <div className="flex flex-col items-center">
           <div className="relative text-center">
             <div className="relative text-center">
-              <h1 className="absolute top-0  -z-10 mb-2 w-full text-8xl font-black leading-normal text-slate-700">
+              <h2 className="absolute top-0  -z-10 mb-2 w-full text-8xl font-black leading-normal text-slate-700">
                 Projects
-              </h1>
+              </h2>
               <h2 className="mb-10 text-6xl font-bold leading-normal">
                 My Projects
               </h2>
@@ -697,7 +698,7 @@ export default function Index() {
                   <h3>
                     <a
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer canonical"
                       href="https://mall-eb5e9.web.app/"
                     >
                       Ecommerce Website
@@ -723,8 +724,8 @@ export default function Index() {
                   <h3>
                     <a
                       target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://music-40uwlu5jz-mains-projects-d62ba9fb.vercel.app/"
+                      rel="noopener noreferrer canonical"
+                      href="https://music-40uwlu5jz-mains-projects-d62ba9fb.vercel.app"
                     >
                       Music player Website
                     </a>
@@ -747,7 +748,7 @@ export default function Index() {
                   <h3>
                     <a
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer canonical"
                       href="https://money-lover-killer.web.app/"
                     >
                       Money Manager Solution
@@ -800,9 +801,9 @@ export default function Index() {
         <div className="flex flex-col items-center justify-center">
           <div className="row justify-content-center mb-5 pb-3">
             <div className="relative text-center">
-              <h1 className="absolute top-0  -z-10 mb-2 w-full text-8xl font-black leading-normal text-slate-700">
+              <h2 className="absolute top-0  -z-10 mb-2 w-full text-8xl font-black leading-normal text-slate-700">
                 Contact
-              </h1>
+              </h2>
               <h2 className="mb-10 text-6xl font-bold leading-normal">
                 Contact Me
               </h2>
@@ -833,7 +834,7 @@ export default function Index() {
                   <a
                     href={contact.link}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer canonical"
                     className="mb-4 cursor-pointer text-slate-300 hover:text-cyan-400"
                   >
                     {contact.content}
