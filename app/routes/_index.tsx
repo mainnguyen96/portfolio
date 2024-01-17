@@ -214,7 +214,7 @@ export default function Index() {
       },
       {
         root: null,
-        rootMargin: '200px',
+        rootMargin: '240px',
         threshold: 0.4
       }
     );
