@@ -1,15 +1,20 @@
 import type { MetaFunction } from '@remix-run/node';
-import { Form } from '@remix-run/react';
-import { useEffect, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export const meta: MetaFunction = () => {
   return [
     {
-      title: 'main nguyen'
+      title: 'Chinh Nguyen'
     },
     {
       name: 'description',
-      content: 'Welcome to my Portfolio!'
+      content: 'Frontend Developer Portfolio'
+    },
+    {
+      name: 'keywords',
+      content:
+        'ReactJS, React Developer, React Development, React Coder, React Freelancer'
     }
   ];
 };
@@ -139,6 +144,7 @@ export default function Index() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const [projectNum, setProjectNum] = useState<number>(0);
   const [dragStart, setDragStart] = useState<number>(0);
+  const [isSending, setIsSending] = useState<boolean | null>(null);
   const timeoutRef = useRef<any>(null);
   const menuRef = useRef<HTMLButtonElement>(null);
   const aboutRef = useRef<HTMLSelectElement>(null);
@@ -272,6 +278,22 @@ export default function Index() {
     });
   };
 
+  const handleSubmit = async (event: FormEvent) => {
+    setIsSending(true);
+    event.preventDefault();
+    const target = event.target;
+
+    const data = {
+      to_name: target.name.value,
+      from_name: 'Chinh Nguyen',
+      subject: target.subject.value,
+      message: `Thank you for contacting me about ${target.subject.value}. Your requirement is "${target.message.value}". Let's discuss more here.`,
+      reply_to: target.subject.email
+    };
+    await emailjs.send('contact_job', 'contact_job', data, 'XVGADLY_mpwIgBsTc');
+    setIsSending(false);
+  };
+
   return (
     <div className="font-mono flex flex-col items-center">
       <nav
@@ -282,7 +304,7 @@ export default function Index() {
         }}
       >
         <div className="relative flex h-full w-full items-center">
-          <div className="text-2xl font-black">Main Nguyen</div>
+          <div className="text-2xl font-black">Chinh Nguyen</div>
           <button
             className="absolute right-0 hidden cursor-pointer md-max:block"
             type="button"
@@ -823,32 +845,51 @@ export default function Index() {
 
           <div className="w-full">
             <div className="flex w-full justify-center p-8 text-cyan-950">
-              <Form action="#" className="w-full max-w-sm	">
+              <form
+                method={'POST'}
+                className="w-full max-w-sm"
+                id="form"
+                onSubmit={handleSubmit}
+              >
+                <div
+                  className={`mb-6 h-12 w-full scale-y-0 ${isSending === false ? 'toast' : ''}  rounded bg-cyan-200 text-center leading-10 text-green-700`}
+                >
+                  Your requirement was send!
+                </div>
                 <div className="mb-4">
                   <input
                     type="text"
+                    id="name"
+                    name="name"
                     className="h-12 w-full rounded-md p-4 outline-none	"
                     placeholder="Your Name"
+                    required
                   />
                 </div>
                 <div className="mb-4">
                   <input
                     type="text"
+                    id="email"
+                    name="email"
                     className="h-12 w-full rounded-md  p-4 outline-none"
                     placeholder="Your Email"
+                    required
                   />
                 </div>
                 <div className="mb-4">
                   <input
                     type="text"
+                    id="subject"
+                    name="subject"
                     className="h-12 w-full rounded-md p-4 outline-none"
                     placeholder="Subject"
+                    required
                   />
                 </div>
                 <div className="mb-4">
                   <textarea
-                    name=""
-                    id=""
+                    name="message"
+                    id="message"
                     cols="30"
                     rows="7"
                     className=" w-full rounded-md p-4 outline-none"
@@ -859,10 +900,10 @@ export default function Index() {
                   <input
                     type="submit"
                     value="Send Message"
-                    className="border-1 w-full cursor-pointer rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide text-white duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
+                    className={`border-1 w-full cursor-pointer rounded-full border-solid border-white ${isSending ? 'bg-cyan-950' : 'bg-cyan-600 hover:bg-cyan-400'}  px-6 py-4 text-sm uppercase tracking-wide text-white duration-300 ease-in  hover:font-semibold`}
                   />
                 </div>
-              </Form>
+              </form>
             </div>
           </div>
         </div>
