@@ -547,7 +547,7 @@ export default function Index() {
                     <a
                       href="https://drive.google.com/file/d/1g1ZslL4MbkgsN9lOnjtoFn_cPltwZpgs/view?usp=drive_link"
                       target="_blank"
-                      rel="noopener noreferrer canonical"
+                      rel="noopener noreferrer"
                       className="border-1 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
                     >
                       Download CV
@@ -603,7 +603,7 @@ export default function Index() {
                 <a
                   href="https://drive.google.com/file/d/1g1ZslL4MbkgsN9lOnjtoFn_cPltwZpgs/view?usp=drive_link"
                   target="_blank"
-                  rel="noopener noreferrer canonical"
+                  rel="noopener noreferrer"
                   className="border-1 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
                 >
                   Download CV
@@ -698,7 +698,7 @@ export default function Index() {
                   <h3>
                     <a
                       target="_blank"
-                      rel="noopener noreferrer canonical"
+                      rel="noopener noreferrer"
                       href="https://mall-eb5e9.web.app/"
                     >
                       Ecommerce Website
@@ -724,7 +724,7 @@ export default function Index() {
                   <h3>
                     <a
                       target="_blank"
-                      rel="noopener noreferrer canonical"
+                      rel="noopener noreferrer"
                       href="https://music-40uwlu5jz-mains-projects-d62ba9fb.vercel.app"
                     >
                       Music player Website
@@ -748,7 +748,7 @@ export default function Index() {
                   <h3>
                     <a
                       target="_blank"
-                      rel="noopener noreferrer canonical"
+                      rel="noopener noreferrer"
                       href="https://money-lover-killer.web.app/"
                     >
                       Money Manager Solution
@@ -834,7 +834,7 @@ export default function Index() {
                   <a
                     href={contact.link}
                     target="_blank"
-                    rel="noopener noreferrer canonical"
+                    rel="noopener noreferrer"
                     className="mb-4 cursor-pointer text-slate-300 hover:text-cyan-400"
                   >
                     {contact.content}
