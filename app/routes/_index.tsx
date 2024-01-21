@@ -545,7 +545,7 @@ export default function Index() {
                   </p>
                   <p>
                     <a
-                      href="https://drive.google.com/file/d/1g1ZslL4MbkgsN9lOnjtoFn_cPltwZpgs/view?usp=drive_link"
+                      href="https://drive.google.com/file/d/1F0D60kzgT9ABo-AUL5r_R_xFSyHL3OPL/view"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="border-1 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
@@ -601,7 +601,7 @@ export default function Index() {
             <div className="col-md-6 ftco-animate text-center">
               <p>
                 <a
-                  href="https://drive.google.com/file/d/1g1ZslL4MbkgsN9lOnjtoFn_cPltwZpgs/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1F0D60kzgT9ABo-AUL5r_R_xFSyHL3OPL/view"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-1 rounded-full border-solid border-white bg-cyan-600 px-6 py-4 text-sm uppercase tracking-wide duration-300 ease-in hover:bg-cyan-400 hover:font-semibold"
