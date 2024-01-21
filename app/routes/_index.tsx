@@ -460,7 +460,7 @@ export default function Index() {
 
       <section
         ref={aboutRef}
-        className="section relative max-w-7xl bg-cover bg-center bg-no-repeat py-28 pt-28 opacity-0"
+        className="section relative max-w-7xl bg-cover bg-center bg-no-repeat py-28 pt-28 opacity-100"
         id="about-section"
       >
         <div className="max-w-screen-lg mx-auto w-full px-4">
