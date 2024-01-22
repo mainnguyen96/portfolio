@@ -22,8 +22,12 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="google-site-verification" content="hjpJCSIR3Fvo7Qd2tIqIHjhmfEPycokiLzVqCbvK9jE" />
-        <link rel='canonical' href='https://portfolio-chinhnguyen.vercel.app'/>
+        <meta
+          name="google-site-verification"
+          content="hjpJCSIR3Fvo7Qd2tIqIHjhmfEPycokiLzVqCbvK9jE"
+        />
+        <meta name="robots" content="nocache" />
+        <link rel="canonical" href="https://portfolio-chinhnguyen.vercel.app" />
         <Meta />
         <Links />
       </head>
